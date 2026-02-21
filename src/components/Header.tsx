@@ -13,6 +13,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -54,13 +55,13 @@ export const Header = () => {
                   Main navigation links for the portfolio website.
                 </SheetDescription>
               </VisuallyHidden>
-              <nav className="flex flex-col gap-6 mt-10">
+              <nav className="flex flex-col gap-6 mt-10 p-2">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="text-lg font-medium hover:text-primary transition-colors"
+                    className="text-lg font-medium hover:text-primary transition-colors hover:opacity-50"
                   >
                     {item.name}
                   </a>

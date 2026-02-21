@@ -27,7 +27,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full py-24 bg-muted/40 lg:h-screen lg:flex lg:items-center lg:justify-between"
+      className="w-full py-24 lg:h-screen lg:flex lg:items-center lg:justify-between"
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
