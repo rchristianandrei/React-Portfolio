@@ -1,3 +1,9 @@
+import Header from "@/components/Header";
+
 export const App = () => {
-  return <>App</>;
+  return (
+    <>
+      <Header></Header>
+    </>
+  );
 };
