@@ -13,7 +13,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className=" w-full py-24 sm:py-32 bg-muted/40 h-screen flex items-center justify-between"
+      className=" w-full py-24 bg-muted/40 sm:h-screen sm:flex sm:items-center sm:justify-between"
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">

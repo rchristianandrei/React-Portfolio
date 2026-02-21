@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative w-full py-24 sm:py-32 lg:py-40 h-screen flex items-center justify-between"
+      className="relative w-full py-24 sm:h-screen sm:flex sm:items-center sm:justify-between"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:justify-between">
