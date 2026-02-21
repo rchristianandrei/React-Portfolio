@@ -17,11 +17,11 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
-export default function Header() {
+export const Header = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full border-b bg-background sticky top-0 z-50">
+    <header className="w-full border-b bg-background absolute top-0 z-50">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <h1 className="text-xl font-bold tracking-tight">Andrei Reyes</h1>
         <nav className="hidden md:flex gap-6">
@@ -72,4 +72,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
