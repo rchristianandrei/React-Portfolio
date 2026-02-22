@@ -1,12 +1,20 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import type { JSX } from "react";
+import { ReactBadge } from "@/components/badges/react";
+import { AngularBadge } from "@/components/badges/Angular";
+import { AspNetCoreBadge } from "@/components/badges/AspNetCore";
+import { MsSqlBadge } from "@/components/badges/MsSql";
+import { VbNetBadge } from "@/components/badges/VbNet";
+import { MySqlBadge } from "@/components/badges/MySql";
+import { IisBadge } from "./badges/Iis";
 
 type Project = {
   title: string;
   description: string;
   image?: string;
-  tech: string[];
+  tech: JSX.Element[];
   live?: string;
   github?: string;
 };
@@ -16,25 +24,27 @@ const projects: Project[] = [
     title: "Modern Portfolio",
     description:
       "A personal portfolio built with React, TypeScript, and shadcn/ui.",
-    image: "/project1.jpg",
-    tech: ["React", "TypeScript", "Tailwind", "Shadcn"],
+    tech: [<ReactBadge key="React" />],
     live: "https://andreireyesportfolio.netlify.app/#",
-    github: "#",
+    github: "https://github.com/rchristianandrei/React-Portfolio",
   },
   {
     title: "Company Website",
     description:
       "Content Management System Admin dashboard with charts, authentication, and responsive layout.",
-    image: "/project2.jpg",
-    tech: ["Angular", "ASP.NET Core", "MsSQL", "IIS"],
+    tech: [
+      <AngularBadge key="Angular" />,
+      <AspNetCoreBadge key="ASP.NET Core" />,
+      <MsSqlBadge key="MsSQL" />,
+      <IisBadge key="IIS" />,
+    ],
     live: "https://sscgi.com",
   },
   {
     title: "Customizable Desktop Application Form",
     description:
       "Allows users to create and customize their own trackers according to their specific needs. This flexibility ensures that the software can adapt to various requirements and use cases.",
-    image: "/project3.jpg",
-    tech: ["VB.NET", "MySQL"],
+    tech: [<VbNetBadge key="VB.NET" />, <MySqlBadge key="MySQL" />],
   },
 ];
 
@@ -65,16 +75,7 @@ export const Projects = () => {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <div className="mt-4 flex flex-wrap gap-2">{project.tech}</div>
               </CardContent>
 
               {/* Buttons */}
