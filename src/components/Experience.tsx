@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState, type JSX } from "react";
-import { ReactBadge } from "./badges/react";
+import { ReactBadge } from "./badges/React";
 import { AngularBadge } from "./badges/Angular";
 import { AspNetCoreBadge } from "./badges/AspNetCore";
 import { MsSqlBadge } from "./badges/MsSql";

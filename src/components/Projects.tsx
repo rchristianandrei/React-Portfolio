@@ -2,7 +2,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import type { JSX } from "react";
-import { ReactBadge } from "@/components/badges/react";
+import { ReactBadge } from "@/components/badges/React";
 import { AngularBadge } from "@/components/badges/Angular";
 import { AspNetCoreBadge } from "@/components/badges/AspNetCore";
 import { MsSqlBadge } from "@/components/badges/MsSql";

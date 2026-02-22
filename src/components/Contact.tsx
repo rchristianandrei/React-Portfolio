@@ -4,11 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Github, Linkedin } from "lucide-react";
+import { SendEmail } from "@/services/emailjsService";
 
 export const Contact = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -18,10 +20,17 @@ export const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
-    // Later connect to backend / email service
+
+    try {
+      await SendEmail({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      });
+    } catch (error) {}
   };
 
   return (
@@ -92,6 +101,17 @@ export const Contact = () => {
                       type="email"
                       placeholder="Your Email"
                       value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Input
+                      name="subject"
+                      type="text"
+                      placeholder="Subject"
+                      value={form.subject}
                       onChange={handleChange}
                       required
                     />
