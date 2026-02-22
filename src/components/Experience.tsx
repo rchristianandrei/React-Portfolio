@@ -7,14 +7,21 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
+import { ReactBadge } from "./badges/react";
+import { AngularBadge } from "./badges/Angular";
+import { AspNetCoreBadge } from "./badges/AspNetCore";
+import { MsSqlBadge } from "./badges/MsSql";
+import { MySqlBadge } from "./badges/MySql";
+import { MongoDbBadge } from "./badges/MongoDb";
+import { VbNetBadge } from "./badges/VbNet";
 
 type Experience = {
   role: string;
   company: string;
   dates: string;
   description: string[];
-  tech?: string[];
+  tech?: JSX.Element[];
 };
 
 const experiences: Experience[] = [
@@ -27,7 +34,12 @@ const experiences: Experience[] = [
       "Contributed to the design and development of the company website using ASP.NET for backend services, Angular for the front-end, and MS SQL Server for database management.",
       "Managed deployment and hosting through IIS, ensuring reliability, security, and optimized performance across environments.",
     ],
-    tech: ["Angular", "TypeScript", "Tailwind", "ASP.NET Core", "MsSQL"],
+    tech: [
+      <AngularBadge key="Angular" />,
+      <AspNetCoreBadge key="ASP.NET Core" />,
+      <MsSqlBadge key="MsSQL" />,
+      <ReactBadge key="React" />,
+    ],
   },
   {
     role: "Software Engineer Intern",
@@ -38,7 +50,13 @@ const experiences: Experience[] = [
       "Tested modern web applications built on ASP.NET, Angular, and MySQL/MongoDB using Playwright for automated end-to-end testing.",
       "Participated in knowledge-sharing activities at a local school, contributing to educational development and professional growth.",
     ],
-    tech: ["Angular", "ASP.NET Core", "MySQL", "MongoDb", "VB.NET"],
+    tech: [
+      <AngularBadge key="Angular" />,
+      <AspNetCoreBadge key="ASP.NET Core" />,
+      <MySqlBadge key="MySQL" />,
+      <MongoDbBadge key="MongoDb" />,
+      <VbNetBadge key="VB.NET" />,
+    ],
   },
 ];
 
@@ -101,14 +119,7 @@ export const Experience = () => {
 
                       {exp.tech && (
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {exp.tech.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-2 py-1 text-xs rounded-md bg-muted"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                          {exp.tech}
                         </div>
                       )}
                     </CardContent>
