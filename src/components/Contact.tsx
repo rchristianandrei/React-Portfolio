@@ -38,7 +38,6 @@ export const Contact = () => {
       });
       toast.success("Email Sent", { position: "top-center" });
     } catch (error) {
-      console.log(error);
       toast.error("Failed to send email", { position: "top-center" });
     } finally {
       setLoading(false);
