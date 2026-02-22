@@ -6,8 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { SendEmail } from "@/services/emailjsService";
 import { toast } from "sonner";
+import { Spinner } from "./ui/spinner";
 
 export const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -22,7 +24,10 @@ export const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (loading) return;
+
     e.preventDefault();
+    setLoading(true);
 
     try {
       await SendEmail({
@@ -34,6 +39,8 @@ export const Contact = () => {
       toast.success("Email Sent", { position: "top-center" });
     } catch (error) {
       toast.error("Failed to send email", { position: "top-center" });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -134,8 +141,9 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {!loading && "Send Message"}
+                  {loading && <Spinner />}
                 </Button>
               </form>
             </CardContent>
