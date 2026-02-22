@@ -40,14 +40,18 @@ export const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row sm: justify-center items-center gap-4 lg:items-start">
-              <Button size="lg" className="w-full sm:w-auto">
-                View Projects
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <a className="w-full sm:w-auto" href="#projects">
+                <Button size="lg">
+                  View Projects
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
 
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                Contact Me
-              </Button>
+              <a className="w-full sm:w-auto" href="#contact">
+                <Button size="lg" variant="outline">
+                  Contact Me
+                </Button>
+              </a>
             </div>
           </div>
         </div>
