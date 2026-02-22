@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { SendEmail } from "@/services/emailjsService";
+import { toast } from "sonner";
 
 export const Contact = () => {
   const [form, setForm] = useState({
@@ -30,7 +31,10 @@ export const Contact = () => {
         subject: form.subject,
         message: form.message,
       });
-    } catch (error) {}
+      toast.success("Email Sent", { position: "top-center" });
+    } catch (error) {
+      toast.error("Failed to send email", { position: "top-center" });
+    }
   };
 
   return (
